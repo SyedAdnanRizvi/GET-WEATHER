@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h2> GET WHEATHER </h2>
+        <input type="text" id="city" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <button onclick="clr()" class="bi bi-x-circle"></button>
+        <div class="weather-info" id="weather-info"></div>
+    </div>
+
+    <script>   
+              
+     function clr(){
+        document.getElementById('city').value = ''
+         document.getElementById('weather-info').value= " "
+    }
+
+        async function getWeather() {
+            const city = document.getElementById('city').value;
+            if (!city) {
+                alert('Please enter a city name');
+                return;
+            }
+        
+            const apiKey = 'd8691463235f41e0a8a122807251202';
+            const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                document.getElementById('weather-info').innerHTML = `
+                    <h3>${data.location.name}, ${data.location.country}</h3>
+                    <p>Temperature: ${data.current.temp_c}°C</p>
+                    <p>Date: ${data.location.localtime.split(' ')[0]}</p>
+                    <p>Time: ${data.location.localtime.split(' ')[1]}</p>
+                    `;
+                    
+            } catch (error) {
+                document.getElementById('weather-info').innerHTML = '<p style="color:red;">Error fetching data. Please try again.</p>';
+            }
+        }
+      
+    </script>
+</body>
+</html>
