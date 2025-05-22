@@ -1,2 +1,2 @@
 # GET-WEATHER 
-allah huakbar
+
