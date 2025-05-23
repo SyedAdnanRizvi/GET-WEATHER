@@ -8,7 +8,12 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('clouds-summer-weather-5k-1b.jpg')
+    background-image: url('clouds-summer-weather-5k-1b.jpg');
+}
+h2{
+   
+  color: black;
+
 }
 .container {
    
@@ -33,7 +38,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background: #0056b3;
+    background: #031d38;
 }
 .weather-info {
     margin-top: 20px;
