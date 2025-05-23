@@ -9,7 +9,7 @@
     
     <div class="container">
         <h2> GET WHEATHER </h2>
-        <input type="text" id="city" placeholder="Enter city name">
+        <input type="text" id="city" placeholder="Enter city name" onclick="clr()">
         <button onclick="getWeather()">Get Weather</button>
         <button onclick="clr()" class="bi bi-x-circle"></button>
         <div class="weather-info" id="weather-info"></div>
@@ -18,8 +18,8 @@
     <script>   
               
      function clr(){
-        document.getElementById('city').value = ''
-         document.getElementById('weather-info').value= " "
+        document.getElementById('city').value = '';
+         document.getElementById('weather-info').innerHTML= " ";
     }
 
         async function getWeather() {
